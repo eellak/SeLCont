@@ -1,4 +1,4 @@
-SeLCON
+SeLCont
 ======
 
 Synchronized eLearning Content ToolKit
