@@ -15,10 +15,6 @@
  * This file may be updated more in future version of the Boilerplate; however, this is the
  * general skeleton and outline for how the file should work.
  *
- *
- * User: cmarinos
- * Date: 12/11/2014
- * Time: 1:08 μμ
  */
 
 // If uninstall not called from WordPress, then exit.

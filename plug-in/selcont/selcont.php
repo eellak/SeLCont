@@ -9,12 +9,10 @@ Author: netmode
 License: GPL2
 */
 
-register_activation_hook( __FILE__, 'cem_selcont_install' );
+require_once( 'classes/class-selcont.php' );
 
-function cem_selcont_install(){
-    if(version_compare( get_bloginfo('version'), '3.1' '<')) {
-        deactivate_plugins( basename( __FILE__ )); //Deactivate our plugin
-    }
+add_action('init', 'netmode_selcont_cb');
+
+function netmode_selcont_cb() {
+    new NETMODE_Selcont();
 }
-
-
