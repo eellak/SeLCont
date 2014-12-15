@@ -1,13 +1,15 @@
 <?php
+/**
+ * Plugin Name: SeLCont
+ * Plugin URI: http://www.netmode.ntua.gr/
+ * Description: SeLCont - Synchronized e-Learning Content Toolkit.
+ * Author: NETMODE
+ * Version: 0.0.1
+ * Author URI: http://www.netmode.ntua.gr/
+ *
+ */
 
-/*
-Plugin Name: Selcont
-Plugin URI: http://selcont.lab.netmode.ntua.gr
-Description: A sophisticated Learning Management System for Wordpress
-Version: 1.0
-Author: netmode
-License: GPL2
-*/
+defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 require_once( 'classes/class-selcont.php' );
 
