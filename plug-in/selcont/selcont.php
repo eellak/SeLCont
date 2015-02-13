@@ -1,20 +1,48 @@
 <?php
 /**
- * Plugin Name: SeLCont
- * Plugin URI: http://www.netmode.ntua.gr/
- * Description: SeLCont - Synchronized e-Learning Content Toolkit.
- * Author: NETMODE
- * Version: 0.0.1
- * Author URI: http://www.netmode.ntua.gr/
+ *
+ * Plugin Name:       SeLCont
+ * Plugin URI:        http://www.netmode.ntua.gr/
+ * Description:       SeLCont - Synchronized e-Learning Content Toolkit.
+ * Version:           1.0
+ * Author:            NETMODE
+ * Author URI:        http://www.netmode.ntua.gr/
+ * Text Domain:       selcont
+ * Domain Path:       /languages
  *
  */
 
-defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
-
-require_once( 'classes/class-selcont.php' );
-
-add_action('init', 'netmode_selcont_cb');
-
-function netmode_selcont_cb() {
-    new NETMODE_Selcont();
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
+
+/**
+ * The code that runs during plugin activation.
+ */
+function activate_selcont() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-selcont-activator.php';
+	Selcont_Activator::activate();
+}
+
+/**
+ * The code that runs during plugin deactivation.
+ */
+function deactivate_selcont() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-selcont-deactivator.php';
+	Selcont_Deactivator::deactivate();
+}
+
+register_activation_hook( __FILE__, 'activate_selcont' );
+register_deactivation_hook( __FILE__, 'deactivate_selcont' );
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * dashboard-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-selcont.php';
+
+// Instantiate our class
+$Selcont = Selcont::getInstance();
+
+
